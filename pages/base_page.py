@@ -31,3 +31,4 @@ class BasePage():
         )
         element.click()
         return None
+        

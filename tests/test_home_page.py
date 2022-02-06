@@ -3,6 +3,7 @@ import time
 import pytest
 from selenium import webdriver
 from pages.home_page import HomePage, HomePageLocators
+from pages.item_page import ItemPage, ItemPageLocators
 
 
 # Idea search for some before hook that will run automatically before each test
@@ -26,6 +27,14 @@ def test_open_monitors_category(chrome_browser: webdriver.Chrome):
     displayed_monitors = home_page.find_many(HomePageLocators.items_in_section)
     assert len(displayed_monitors) == 2
 
-@pytest.mark.skip
+# Verify that item with specified name is diaplayed on Monitors page
+@pytest.mark.run
+@pytest.mark.home_page
 def test_open_item_from_monitors_category(chrome_browser: webdriver.Chrome):
-    pass
+    home_page = HomePage(driver=chrome_browser)
+    home_page.open()
+    home_page.click(HomePageLocators.get_category_name('Monitors'))
+    time.sleep(1)
+    home_page.click(HomePageLocators.get_item_in_section())
+    apple_monitor_page = ItemPage(driver=chrome_browser)
+    assert apple_monitor_page.find(ItemPageLocators.item_title).text == 'Apple monitor 24'
