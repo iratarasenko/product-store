@@ -20,9 +20,3 @@ class HomePageLocators:
 class HomePage(BasePage):
 
     url = 'https://www.demoblaze.com/index.html'
-
-    def get_element_by_text(self, text):
-        elements = self.find_many(HomePageLocators.items_in_section)
-        for element in elements:
-            if element.text == text:
-                return element
