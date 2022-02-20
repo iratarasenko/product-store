@@ -6,7 +6,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-@pytest.mark.run
 @pytest.mark.item_page
 def test_add_to_cart(chrome_browser: webdriver.Chrome):
     """Verify add to card functionality"""
