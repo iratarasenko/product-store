@@ -6,8 +6,6 @@ from pages.home_page import HomePage, HomePageLocators
 from pages.item_page import ItemPage, ItemPageLocators
 
 
-# Idea search for some before hook that will run automatically before each test
-
 """Test suite to verify category selection functionality at Home page"""
 @pytest.mark.home_page
 def test_open_home_page(chrome_browser: webdriver.Chrome):
